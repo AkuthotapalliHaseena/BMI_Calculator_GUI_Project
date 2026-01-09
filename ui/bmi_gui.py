@@ -14,22 +14,22 @@ class BMIGUI:
         self.root.geometry("350x300")
         self.root.resizable(False, False)
 
-        tk.Label(root, text="BMI Calculator", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(root, text="BMI Calculator", font=("Arial", 16, "bold")).grid(row=0,column=0,columnspan=4,pady=10)
 
-        tk.Label(root, text="Weight (kg):").pack()
-        self.weight_entry = tk.Entry(root)
-        self.weight_entry.pack()
+        tk.Label(root, text="Weight (kg):").grid(row=1,column=0,padx=10,pady=5,sticky="e")
+        self.weight_entry = tk.Entry(root,width=10)
+        self.weight_entry.grid(row=1,column=1,padx=5,pady=5)
 
-        tk.Label(root, text="Height (m):").pack()
-        self.height_entry = tk.Entry(root)
-        self.height_entry.pack()
+        tk.Label(root, text="Height (cm):").grid(row=1,column=2,padx=10,pady=5,sticky="e")
+        self.height_entry = tk.Entry(root,width=10)
+        self.height_entry.grid(row=1,column=3,padx=5,pady=5)
 
-        tk.Button(root, text="Calculate BMI", command=self.calculate_bmi).pack(pady=10)
+        tk.Button(root, text="Calculate BMI",font=("Arial",12,"bold"), command=self.calculate_bmi).grid(row=2,column=0,columnspan=4,pady=10)
 
         self.result_label = tk.Label(root, text="", font=("Arial", 12))
-        self.result_label.pack(pady=5)
+        self.result_label.grid(row=3,column=0,columnspan=4,pady=5)
 
-        tk.Button(root, text="Open Health Tips", command=self.open_health_page).pack(pady=5)
+        tk.Button(root, text="Open Health Tips", command=self.open_health_page).grid(row=4,column=0,columnspan=4,pady=5)
 
     def calculate_bmi(self):
         try:

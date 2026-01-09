@@ -1,6 +1,7 @@
 class BMIService:
-    def calculate_bmi(self, weight, height):
-        return weight / (height * height)
+    def calculate_bmi(self, weight, height_cm):
+        height_m=height_cm/100
+        return weight / (height_m* height_m)
 
     def get_bmi_category(self, bmi):
         if bmi < 18.5:
